@@ -22,6 +22,7 @@ public class DesafiorestApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+
 		
 		Medico m1 = new Medico();
 		Medico m2 = new Medico();
@@ -30,6 +31,7 @@ public class DesafiorestApplication implements CommandLineRunner {
 		m1.setNome("Jesus");
 		m2.setNome("Maria");
 		m3.setNome("José");
+	
 		
 		repo.saveAll(Arrays.asList(m1, m2, m3));
 		

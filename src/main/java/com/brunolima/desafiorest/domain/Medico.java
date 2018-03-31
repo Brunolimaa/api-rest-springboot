@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Medico implements Serializable {
 
@@ -19,17 +21,19 @@ public class Medico implements Serializable {
 	private String ultimNome;
 	private String email;
 	private String especialidade;
-	private Boolean status;
+	private String status;
 	private Boolean situacao;
 	private String estado;
-	private String brasilia;
+	private String cidade;
+	@JsonIgnore
+	private String senha; 
 	
 	public Medico() {
 		
 	}
 	
-	public Medico(Integer id, String nome, String ultimNome, String email, String especialidade, Boolean status,
-			Boolean situacao, String estado, String brasilia) {
+	public Medico(Integer id, String nome, String ultimNome, String email, String especialidade, String status,
+			Boolean situacao, String estado, String cidade, String senha) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -39,7 +43,17 @@ public class Medico implements Serializable {
 		this.status = status;
 		this.situacao = situacao;
 		this.estado = estado;
-		this.brasilia = brasilia;
+		this.cidade = cidade;
+		this.senha = senha;
+	}
+	
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public Integer getId() {
@@ -82,11 +96,11 @@ public class Medico implements Serializable {
 		this.especialidade = especialidade;
 	}
 
-	public Boolean getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
@@ -106,12 +120,12 @@ public class Medico implements Serializable {
 		this.estado = estado;
 	}
 
-	public String getBrasilia() {
-		return brasilia;
+	public String getCidade() {
+		return cidade;
 	}
 
-	public void setBrasilia(String brasilia) {
-		this.brasilia = brasilia;
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
 	}
 
 	@Override
